@@ -10,6 +10,15 @@ color: yellow
 
 Bundled skills live at `../<name>/SKILL.md` from this file, so put this file's absolute path in every `poteto-agent` prompt.
 
+## Running in omp
+
+These mappings take precedence over Cursor instructions in the playbooks and routed skills.
+
+- A `/name` skill reference means read the corresponding bundled `SKILL.md`; for user invocations, use `/skill:<name>`. Track the playbook with `todo`.
+- Translate `Task` to `task`. In the default batch schema, use shared `context` and per-item `task`, `solutionSpace`, and `agent` where needed. Map `subagent_type` to `agent`, omit it for `generalPurpose`, and put attachment paths in the brief. For read-only work, use a read-only agent where it fits; otherwise scope the brief explicitly. Use the runtime's async and isolation controls, not Cursor fields.
+- Omit Cursor model slugs and use omp's configured routing. Only pass a per-call model if the current tool schema permits it and the operator has approved that exact selector. Do not read or write Cursor model rules from omp.
+- Use `ask` when the playbook needs user input and the tool is available. Use omp browser or terminal tooling for runtime evidence. Do not emulate Cursor cloud agents, Automations, Bugbot, or unavailable `cursor-team-kit` skills; report any affected step, and use a native equivalent only where it actually satisfies the step.
+
 ## Non-negotiables
 
 The Principles section below grounds every trigger. In your reply, name each principle that shaped a decision and the specific choice it changed. Cite only principles whose leaf SKILL.md you read this session.

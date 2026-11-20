@@ -1,5 +1,19 @@
 # pstack
 
+## Local omp fork
+
+This is a local-only fork of [pstack 0.15.46](https://github.com/cursor/plugins/tree/aaeb0ea3a0584995aa8f55ce44c6c5259414b896/pstack). To try edits from this checkout without installing or publishing anything:
+
+```sh
+omp --plugin-dir "$PWD"
+```
+
+Run that command from this checkout, or pass its absolute path when working in another project. In omp, enter `/skill:poteto-mode <task>`. Customize the router in `skills/poteto-mode/SKILL.md`, individual playbooks under `skills/poteto-mode/playbooks/`, and delegate behavior under `agents/`.
+
+The root manifest intentionally omits the Agent Plugins schema so omp can load upstream skill frontmatter through its conventional scanner. The omp mappings are in `Running in omp` in the router. The notes below are upstream Cursor/Claude Code documentation: `/setup-pstack`, Cursor Automations, cloud-agent workflows, and Cursor-only integrations have not been ported. Use omp's `/agents` for delegate model settings.
+
+---
+
 i'm [poteto](https://x.com/poteto). i'm not a president or ceo, but i've worked with millions of lines of code at Meta, Netflix, and Cursor. i'm also on the react core team where i help build and maintain react compiler.
 
 there's a growing sense that ai writes too much slop code. i agree. i don't want to ship like a team of twenty slop artists. throughput without quality is not a goal i aspire to. if you want to go fast, go deep first. 
