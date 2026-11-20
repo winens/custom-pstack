@@ -1,18 +1,30 @@
-# pstack
+# custom-pstack
 
-## Local omp fork
+A public fork of [Lauren Tan’s pstack 0.15.46](https://github.com/cursor/plugins/tree/aaeb0ea3a0584995aa8f55ce44c6c5259414b896/pstack) for [Oh My Pi (omp)](https://omp.sh). It packages pstack’s engineering skills, playbooks, and delegate agents for local use in omp.
 
-This is a local-only fork of [pstack 0.15.46](https://github.com/cursor/plugins/tree/aaeb0ea3a0584995aa8f55ce44c6c5259414b896/pstack). To try edits from this checkout without installing or publishing anything:
+## Quick start
 
 ```sh
+git clone https://github.com/winens/custom-pstack.git
+cd custom-pstack
 omp --plugin-dir "$PWD"
 ```
 
-Run that command from this checkout, or pass its absolute path when working in another project. In omp, enter `/skill:poteto-mode <task>`. Customize the router in `skills/poteto-mode/SKILL.md`, individual playbooks under `skills/poteto-mode/playbooks/`, and delegate behavior under `agents/`.
+To use the plugin in another project, run omp from that project and pass the absolute path to your `custom-pstack` checkout as `--plugin-dir`. No global plugin install is needed.
 
-The root manifest intentionally omits the Agent Plugins schema so omp can load upstream skill frontmatter through its conventional scanner. The omp mappings are in `Running in omp` in the router. The notes below are upstream Cursor/Claude Code documentation: `/setup-pstack`, Cursor Automations, cloud-agent workflows, and Cursor-only integrations have not been ported. Use omp's `/agents` for delegate model settings.
+In omp, try `/skill:poteto-mode Investigate why this test is flaky` or run `/skill:poteto-help` to browse the workflows.
 
----
+## Compatibility and customization
+
+- Edit the [router](./skills/poteto-mode/SKILL.md), [playbooks](./skills/poteto-mode/playbooks/), or [delegate agents](./agents/) in your checkout. See [Running in omp](./skills/poteto-mode/SKILL.md#running-in-omp) for the tool mappings.
+- Use omp’s `/agents` to configure delegate models. Upstream `/setup-pstack`, Cursor Automations, cloud-agent workflows, and Cursor-only integrations such as Bugbot have not been ported.
+
+Licensed under [MIT](./LICENSE).
+
+<details>
+<summary>Original pstack README for Cursor and Claude Code (upstream reference)</summary>
+
+The instructions below apply to upstream pstack, not to this omp fork.
 
 i'm [poteto](https://x.com/poteto). i'm not a president or ceo, but i've worked with millions of lines of code at Meta, Netflix, and Cursor. i'm also on the react core team where i help build and maintain react compiler.
 
@@ -302,3 +314,5 @@ to set it up, point cursor at [`FOR_AGENTS.md`](./automations/benny/FOR_AGENTS.m
 ## license
 
 MIT
+
+</details>
